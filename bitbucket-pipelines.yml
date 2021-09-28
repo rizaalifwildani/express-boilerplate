@@ -1,0 +1,49 @@
+# Template docker-push
+
+# This template allows you to build and push your docker image to a Docker Hub account.
+# The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+# The docker image will be validated and pushed to the docker registry after the code is merged to master.
+
+# Prerequisites: $DOCKERHUB_USERNAME, $DOCKERHUB_PASSWORD setup as deployment variables
+
+# image: atlassian/default-image:2
+# image: node:latest
+
+# definitions:
+#   steps:
+#     - step: &Build
+#         name: Install Package
+#         caches:
+#           - node
+#         script:
+#           - npm install
+
+# pipelines:
+#   branches:
+#     staging:
+#       - step: *Build
+#       - step:
+#           name: Deploy to Staging
+#           deployment: Staging
+#           script:
+#             - pipe: atlassian/ssh-run:0.3.1
+#               variables:
+#                 SSH_USER: $SSH_USER_STAGING
+#                 SERVER: $SSH_SERVER_STAGING
+#                 PORT: $SSH_PORT_STAGING
+#                 MODE: 'script'
+#                 COMMAND: 'deploy_staging.sh'
+#     master:
+#       - step: *Build
+#       - step:
+#           name: Deploy to Production
+#           deployment: Production
+#           trigger: manual
+#           script:
+#             - pipe: atlassian/ssh-run:0.3.1
+#               variables:
+#                 SSH_USER: $SSH_USER_PROD
+#                 SERVER: $SSH_SERVER_PROD
+#                 PORT: $SSH_PORT_PROD
+#                 MODE: 'script'
+#                 COMMAND: 'deploy_prod.sh'
