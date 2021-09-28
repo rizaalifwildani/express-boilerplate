@@ -1,7 +1,7 @@
 const httpStatus = require('http-status')
-const JWT = require('../../helper/jwt.helper')
-const Response = require('../../helper/response.helper')
-const MemberRepository = require('../repositories/member.repository')
+const JWT = require('../../../helper/jwt.helper')
+const Response = require('../../../helper/response.helper')
+const MemberRepository = require('../../repositories/member.repository')
 
 module.exports = class AuthController {
   /**

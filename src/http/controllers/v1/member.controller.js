@@ -1,6 +1,5 @@
-const JWT = require('../../helper/jwt.helper')
-const Response = require('../../helper/response.helper')
-const MemberResource = require('../requests/resources/member.resource')
+const JWT = require('../../../helper/jwt.helper')
+const Response = require('../../../helper/response.helper')
 
 module.exports = class MemberController {
   /**
