@@ -6,6 +6,11 @@ const MemberRepository = require('../../repositories/member.repository')
 module.exports = class AuthController {
   /**
    * @method POST
+   * @body :
+   * firstName String
+   * lastName String
+   * email String
+   * password String
    * @param {Request} req http request.
    * @param {Response} res http response.
    */
@@ -27,6 +32,9 @@ module.exports = class AuthController {
 
   /**
    * @method POST
+   * @body :
+   * email String | phone String
+   * password String
    * @param {Request} req http request.
    * @param {Response} res http response.
    */

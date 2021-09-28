@@ -1,7 +1,7 @@
 module.exports = class MemberResource {
   /**
    * @param {Object} data
-   * @return {Promise} token or null.
+   * @return {Promise} object
    */
   static resource(data) {
     return {
