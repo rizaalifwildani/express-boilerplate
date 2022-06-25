@@ -145,7 +145,7 @@ router.post('/login', GUEST, AuthController.login)
 /**
  * @swagger
  * /api/v1/auth/logout:
- *  get:
+ *  patch:
  *    summary: Logout for current session
  *    tags: [Auth v1]
  *    responses:
@@ -162,9 +162,8 @@ router.post('/login', GUEST, AuthController.login)
  *        content:
  *          application/json:
  *            schema:
- *              type: boolean
  *              example:
- *                false
+ *                null
  */
 router.patch('/logout', AUTH, AuthController.logout)
 

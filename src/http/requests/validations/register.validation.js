@@ -1,5 +1,5 @@
 const {check} = require('express-validator')
-const User = require('../../../database/models/user')
+const {User} = require('../../../database/models/index')
 
 const registerValidation = () => [
   check('firstName')
@@ -44,14 +44,7 @@ const registerValidation = () => [
       })),
   check('password')
       .isLength({min: 5})
-      .withMessage('must be at least 5 characters long')
-      .custom((val, {req}) => {
-        if (val !== req.body.passwordConfirmation) {
-          throw Error('password confirmation does\'t match with password')
-        } else {
-          return true
-        }
-      }),
+      .withMessage('must be at least 5 characters long'),
 ]
 
 module.exports = registerValidation

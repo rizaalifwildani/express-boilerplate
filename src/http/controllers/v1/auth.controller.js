@@ -62,6 +62,7 @@ module.exports = class AuthController {
   static logout(req, res) {
     if (JWT.destroyToken(req, res)) {
       new Response(res)
+          .setData(true)
           .setMessage('Logout Success')
           .get()
     } else {
