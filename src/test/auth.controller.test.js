@@ -28,10 +28,9 @@ describe('AuthController', () => {
     const formData = {
       firstName: 'Jhon',
       lastName: 'Doe',
-      phone: '6282322153795',
+      phone: '+6285920616342',
       email: 'jhon@example.com',
-      password: 'jhondoe123',
-      passwordConfirmation: 'jhondoe123'
+      password: 'jangankepo',
     }
 
     const res = await request(app)
