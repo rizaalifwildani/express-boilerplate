@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 
-module.exports = class JWT {
+/** */
+class JWT {
   /**
    * @param {Request} req http request.
    * @return {String} token.
@@ -60,3 +61,5 @@ module.exports = class JWT {
     return true
   }
 }
+
+module.exports = JWT

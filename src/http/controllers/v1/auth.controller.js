@@ -1,7 +1,7 @@
 const httpStatus = require('http-status')
 const JWT = require('../../../helper/jwt.helper')
 const Response = require('../../../helper/response.helper')
-const MemberRepository = require('../../repositories/member.repository')
+const userRepository = require('../../../database/repositories/user.repository')
 
 module.exports = class AuthController {
   /**
@@ -15,7 +15,7 @@ module.exports = class AuthController {
    * @param {Response} res http response.
    */
   static async register(req, res) {
-    const token = await MemberRepository.register(req.body, res)
+    const token = await userRepository.register(req.body, res)
     if (token) {
       new Response(res)
           .setData({token})
@@ -39,7 +39,7 @@ module.exports = class AuthController {
    * @param {Response} res http response.
    */
   static async login(req, res) {
-    const token = await MemberRepository.login(req.body, res)
+    const token = await userRepository.login(req.body, res)
 
     if (token) {
       new Response(res)

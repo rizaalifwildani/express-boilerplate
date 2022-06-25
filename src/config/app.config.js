@@ -1,17 +1,36 @@
 const express = require('express')
-
 const app = express()
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
-const corsOptions = require('./cors.config')
-const routes = require('../routes/index.routes')
-require('dotenv').config()
-require('./sequelize.config')
 
-app.use(cookieParser())
-app.use(cors(corsOptions))
+/* ENV */
+require('dotenv').config()
+
+/* BODY PARSER */
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+
+/* CORS */
+const corsConfig = require('./cors.config')
+app.use(corsConfig)
+
+/* ERROR HANDLER */
+const errorConfig = require('./error.config')
+app.use(errorConfig)
+
+/* COOKIE */
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
+
+/* SWAGGER */
+const swaggerUi = require('swagger-ui-express')
+const swaggerConfig = require('./swagger.config')
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConfig))
+
+/* ROUTE */
+const routes = require('../routes/index.routes')
 app.use(routes)
+
+/* LOGGER */
+const loggerConfig = require('./logger.config')
+app.use(loggerConfig)
 
 module.exports = app

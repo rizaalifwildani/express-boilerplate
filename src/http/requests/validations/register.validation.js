@@ -1,5 +1,5 @@
 const {check} = require('express-validator')
-const {Member} = require('../../../config/sequelize.config')
+const User = require('../../../database/models/user')
 
 const registerValidation = () => [
   check('firstName')
@@ -15,13 +15,13 @@ const registerValidation = () => [
       .withMessage('must be number only')
       .isLength({min: 9})
       .withMessage('must be at least 9 characters long')
-      .custom((val) => Member.findOne({
+      .custom((val) => User.findOne({
         raw: true,
         where: {
           phone: val,
         },
-      }).then((member) => {
-        if (member) {
+      }).then((user) => {
+        if (user) {
           throw Error('phone already in use')
         } else {
           return true
@@ -30,13 +30,13 @@ const registerValidation = () => [
   check('email')
       .isEmail()
       .withMessage('must be a valid email')
-      .custom((val) => Member.findOne({
+      .custom((val) => User.findOne({
         raw: true,
         where: {
           email: val,
         },
-      }).then((member) => {
-        if (member) {
+      }).then((user) => {
+        if (user) {
           throw Error('email already in use')
         } else {
           return true

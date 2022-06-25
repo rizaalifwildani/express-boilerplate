@@ -2,20 +2,20 @@
 class Repository {
   /**
    * @param {Model} model
-   * @param {Array} includeModel array relation name such as packages.
+   * @param {Array<Model>} relationModel array relation name such as packages.
   */
-  constructor(model, includeModel) {
+  constructor(model, relationModel) {
     this.model = model
-    this.includeModel = includeModel
+    this.relationModel = relationModel
   }
 
   /**
    * @param {Object} where
    * @return {Promise} array
   */
-  findAll(where) {
+  async findAll(where) {
     return this.model.findAll({
-      include: this.includeModel,
+      include: this.relationModel,
       where,
     }).then((res) => res).catch((err) => {
       console.log('Error :', err)
@@ -27,9 +27,9 @@ class Repository {
    * @param {Object} where
    * @return {Promise} object | null
   */
-  findOne(where) {
+  async findOne(where) {
     return this.model.findOne({
-      include: this.include,
+      include: this.relationModel,
       where,
     }).then((res) => res).catch((err) => {
       console.log('Error :', err)
@@ -41,7 +41,7 @@ class Repository {
    * @param {Object} data
    * @return {Promise} object | null
   */
-  create(data = {}) {
+  async create(data = {}) {
     return this.model.create(data).then((res) => res.dataValues).catch((err) => {
       console.log('Error :', err)
       return null

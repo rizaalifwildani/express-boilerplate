@@ -1,6 +1,7 @@
 const crypto = require('crypto')
 
-module.exports = class PASSWORD {
+/** */
+class PASSWORD {
   /**
    * @param {String} string target string.
    * @return {String} string sha256.
@@ -22,3 +23,5 @@ module.exports = class PASSWORD {
     return false
   }
 }
+
+module.exports = PASSWORD

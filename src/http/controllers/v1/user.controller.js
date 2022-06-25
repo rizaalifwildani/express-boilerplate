@@ -1,15 +1,16 @@
 const JWT = require('../../../helper/jwt.helper')
 const Response = require('../../../helper/response.helper')
+const UserResource = require('../../requests/resources/user.resource')
 
-module.exports = class MemberController {
+module.exports = class UserController {
   /**
    * @method GET
    * @header Authorization
    * @param {Request} req http request.
    * @param {Response} res http response.
    */
-  static async profile(req, res) {
-    const data = MemberResource.resource(JWT.getData(req))
+  static async me(req, res) {
+    const data = UserResource.resource(JWT.getData(req))
     new Response(res)
         .setData(data)
         .get()

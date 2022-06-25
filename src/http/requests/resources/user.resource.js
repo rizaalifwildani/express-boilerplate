@@ -1,12 +1,11 @@
-module.exports = class MemberResource {
+module.exports = class UserResource {
   /**
    * @param {Object} data
-   * @return {Promise} object
+   * @return {Object} object
    */
   static resource(data) {
     return {
       id: data.id,
-      avatar: data.avatar,
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
