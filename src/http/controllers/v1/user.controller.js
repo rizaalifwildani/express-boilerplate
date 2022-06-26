@@ -2,7 +2,8 @@ const JWT = require('../../../helper/jwt.helper')
 const Response = require('../../../helper/response.helper')
 const UserResource = require('../../requests/resources/user.resource')
 
-module.exports = class UserController {
+/** */
+class UserController {
   /**
    * @method GET
    * @header Authorization
@@ -16,3 +17,5 @@ module.exports = class UserController {
         .get()
   }
 }
+
+module.exports = UserController

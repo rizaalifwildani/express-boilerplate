@@ -3,7 +3,8 @@ const JWT = require('../../../helper/jwt.helper')
 const Response = require('../../../helper/response.helper')
 const userRepository = require('../../../database/repositories/user.repository')
 
-module.exports = class AuthController {
+/** */
+class AuthController {
   /**
    * @method POST
    * @body :
@@ -73,3 +74,5 @@ module.exports = class AuthController {
     }
   }
 }
+
+module.exports = AuthController

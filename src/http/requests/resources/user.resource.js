@@ -1,4 +1,5 @@
-module.exports = class UserResource {
+/** */
+class UserResource {
   /**
    * @param {Object} data
    * @return {Object} object
@@ -13,3 +14,5 @@ module.exports = class UserResource {
     }
   }
 }
+
+module.exports = UserResource

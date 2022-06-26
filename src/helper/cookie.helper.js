@@ -1,4 +1,5 @@
-module.exports = class COOKIE {
+/** */
+class COOKIE {
   /**
    * @param {Request} request target string.
    * @return {Object}
@@ -31,3 +32,5 @@ module.exports = class COOKIE {
     return cookie
   }
 }
+
+module.exports = COOKIE
