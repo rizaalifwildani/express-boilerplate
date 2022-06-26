@@ -10,6 +10,7 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - run `npm run seed` or `yarn seed` to run database seeder
 - and start project with command `npm run dev` or `yarn dev`
 - finally, test request with POSTMAN or run `http://localhost:5003/api-docs/#/` for swagger
+- postman collection `https://www.getpostman.com/collections/83b0c662b9cf84f1a89b`
 
 ## Package used in this project
 - [Express](https://expressjs.com/)
