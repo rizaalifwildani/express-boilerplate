@@ -8,7 +8,7 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - create database with called `db_express`
 - run `npx sequelize db:migrate` and `npx sequelize db:seed:all` in terminal
 - and start project with command `npm run dev` or `yarn dev`
-- finally, test request with POSTMAN
+- finally, test request with POSTMAN or run `http://localhost:5003/api-docs/#/` for swagger
 
 ## Package used in this project
 - [Express](https://expressjs.com/)
