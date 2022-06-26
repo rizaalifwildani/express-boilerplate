@@ -38,6 +38,19 @@ class Repository {
   }
 
   /**
+   * @param {String} id
+   * @return {Promise} object | null
+  */
+  async findByID(id) {
+    return this.model.findByPk(id, {
+      include: this.relationModel,
+    }).then((res) => res).catch((err) => {
+      console.log('Error :', err)
+      return null
+    })
+  }
+
+  /**
    * @param {Object} data
    * @return {Promise} object | null
   */

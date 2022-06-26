@@ -50,6 +50,10 @@ module.exports = {
           min: 6,
         },
       },
+      expiryToken: {
+        type: Sequelize.DOUBLE,
+        defaultValue: 0,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

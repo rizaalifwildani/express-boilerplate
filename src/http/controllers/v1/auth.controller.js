@@ -40,7 +40,7 @@ class AuthController {
    * @param {Response} res http response.
    */
   static async login(req, res) {
-    const token = await userRepository.login(req.body, res)
+    const token = await userRepository.login(req.body)
 
     if (token) {
       new Response(res)
@@ -61,7 +61,7 @@ class AuthController {
    * @param {Response} res http response.
    */
   static logout(req, res) {
-    if (JWT.destroyToken(req, res)) {
+    if (JWT.destroyToken(req)) {
       new Response(res)
           .setData(true)
           .setMessage('Logout Success')

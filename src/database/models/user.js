@@ -1,10 +1,11 @@
 'use strict'
 const {
+  DataTypes,
   Model,
 } = require('sequelize')
 const uuid = require('uuid')
 const PASSWORD = require('../../helper/password.helper')
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, dt) => {
   /**
    * @extends Model
    */
@@ -22,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    expiryToken: DataTypes.DOUBLE,
   }, {
     hooks: {
       beforeCreate: async (data) => {

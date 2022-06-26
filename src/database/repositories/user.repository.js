@@ -18,20 +18,24 @@ class UserRepository extends Repository {
    * @return {Promise} token | null.
    */
   async register(data, res) {
-    return this.create(data).then((user) => {
+    return this.create(data).then(async (user) => {
       const dataUser = user
       delete dataUser.password
-      const token = JWT.generateToken(res, dataUser)
+      const token = JWT.generateToken(dataUser)
+      if (token.length > 0) {
+        const user = await User.findByPk(dataUser.id)
+        user.expiryToken = 86400
+        user.save()
+      }
       return token
     }).catch(() => null)
   }
 
   /**
    * @param {Object} data
-   * @param {Response} res
    * @return {Promise} token.
    */
-  async login(data, res) {
+  async login(data) {
     const {
       email, phone, password,
     } = data
@@ -49,7 +53,12 @@ class UserRepository extends Repository {
     if (dataUser) {
       if (PASSWORD.verify(password, dataUser.dataValues.password)) {
         delete dataUser.dataValues.password
-        token = JWT.generateToken(res, dataUser.dataValues)
+        token = JWT.generateToken(dataUser.dataValues)
+        if (token.length > 0) {
+          const user = await this.findByID(dataUser.id)
+          user.expiryToken = 86400
+          user.save()
+        }
       }
     }
 

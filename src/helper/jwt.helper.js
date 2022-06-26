@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const {User} = require('../database/models/index')
 
 /** */
 class JWT {
@@ -7,13 +8,9 @@ class JWT {
    * @return {String} token.
    */
   static getToken(req) {
-    const cookieToken = req.cookies.token
     const {authorization} = req.headers
     const token = authorization && authorization.split(' ')[1]
-    if (cookieToken === token) {
-      return token
-    }
-    return ''
+    return token
   }
 
   /**
@@ -28,13 +25,11 @@ class JWT {
   }
 
   /**
-   * @param {Response} res http response.
    * @param {Object} data
    * @return {String} token.
    */
-  static generateToken(res, data) {
+  static generateToken(data) {
     const token = jwt.sign(data, process.env.JWT_TOKEN_SECRET, {expiresIn: '86400s'}) // 86400 = 1 Day
-    res.cookie('token', token, {maxAge: 24 * 60 * 60 * 1000})
     return token
   }
 
@@ -45,20 +40,24 @@ class JWT {
   static getData(req) {
     const token = this.getToken(req)
     if (!this.verifyToken(token)) {
-      return {}
+      return null
     }
     return jwt.decode(token)
   }
 
   /**
    * @param {Request} req http request.
-   * @param {Response} res http response.
    * @return {Boolean}
    */
-  static destroyToken(req, res) {
-    const token = this.getToken(req)
-    res.cookie('token', token, {maxAge: 0})
-    return true
+  static async destroyToken(req) {
+    const data = this.getData(req)
+    if (data) {
+      const user = await User.findByPk(data.id)
+      user.expiryToken = 0
+      user.save()
+      return true
+    }
+    return false
   }
 }
 
