@@ -38,7 +38,7 @@ const AuthController = require('../../http/controllers/v1/auth.controller')
  *        lastName: Doe
  *        email: jhon@example.com
  *        phone: "+6285920616342"
- *        password: jangankepo
+ *        password: password
  */
 
 /**
@@ -60,7 +60,7 @@ const AuthController = require('../../http/controllers/v1/auth.controller')
  *              lastName: Doe
  *              email: jhon@example.com
  *              phone: "+6285920616342"
- *              password: jangankepo
+ *              password: password
  *    responses:
  *      201:
  *        description: Registration Success
@@ -100,7 +100,7 @@ router.post('/register', GUEST, registerValidation(), getValidationResult, AuthC
  *          description: The password of the user
  *      example:
  *        email: jhon@example.com
- *        password: jangankepo
+ *        password: password
  */
 
 /**
@@ -118,7 +118,7 @@ router.post('/register', GUEST, registerValidation(), getValidationResult, AuthC
  *              $ref: '#/components/schemas/UserLogin'
  *          example:
  *            email: jhon@example.com
- *            password: jangankepo
+ *            password: password
  *    responses:
  *      200:
  *        description: Login Success

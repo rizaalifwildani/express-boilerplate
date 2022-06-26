@@ -9,7 +9,7 @@ module.exports = {
       lastName: 'Doe',
       phone: '+6285920616342',
       email: 'jhon@example.com',
-      password: PASSWORD.generate('jangankepo'),
+      password: PASSWORD.generate('password'),
       createdAt: new Date(),
       updatedAt: new Date(),
     }])

@@ -30,7 +30,7 @@ describe('AuthController', () => {
       lastName: 'Doe',
       phone: '+6285920616342',
       email: 'jhon@example.com',
-      password: 'jangankepo',
+      password: 'password',
     }
 
     const res = await request(app)

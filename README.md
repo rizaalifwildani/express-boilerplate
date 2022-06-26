@@ -6,7 +6,8 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - open file `.env.example` and copy all content
 - create and open file `.env` and paste here
 - create database with called `db_express`
-- run `npx sequelize db:migrate` and `npx sequelize db:seed:all` in terminal
+- run `npm run migrate` or `yarn migrate` to run database migration
+- run `npm run seed` or `yarn seed` to run database seeder
 - and start project with command `npm run dev` or `yarn dev`
 - finally, test request with POSTMAN or run `http://localhost:5003/api-docs/#/` for swagger
 
