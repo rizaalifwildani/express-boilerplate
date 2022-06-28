@@ -3,7 +3,7 @@ const exec = require('child_process').exec
 
 const backupDBScheduler = cron.schedule('0 0 * * *', () => {
   console.log('dumping . . .')
-  exec('mysqldump -u root bukaanime > db_express.sql', (error) => {
+  exec('mysqldump -u root db_express > db_express_dump.sql', (error) => {
     if (error) {
       console.log('dumping error : ', error.message)
     } else {
