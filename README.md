@@ -12,6 +12,16 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - finally, test request with POSTMAN or run `http://localhost:5003/api-docs/#/` for swagger
 - postman collection `https://www.getpostman.com/collections/83b0c662b9cf84f1a89b`
 
+## Feature
+- Register
+- Login
+- Logout
+- Profile
+- Logger
+- Unit Testing
+- Scheduler (Backup DB)
+- Swagger
+
 ## Package used in this project
 - [Express](https://expressjs.com/)
 - [Axios](https://www.npmjs.com/package/axios)
@@ -26,6 +36,7 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - [MySQL 2](https://www.npmjs.com/package/mysql2) for Database
 - [Sequelize](https://sequelize.org/docs/v6/getting-started/) for ORM
 - [Sequelize CLI](https://github.com/sequelize/cli) for Sequelize Command
+- [Node CRON](https://www.npmjs.com/package/node-cron) for Scheduler
 - [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc)
 - [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express)
 - [UUID](https://www.npmjs.com/package/uuid)
