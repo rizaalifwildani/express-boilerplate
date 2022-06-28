@@ -33,4 +33,7 @@ app.use(routes)
 const loggerConfig = require('./logger.config')
 app.use(loggerConfig)
 
+/* CRON */
+require('./scheduler.config')
+
 module.exports = app

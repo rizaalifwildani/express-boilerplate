@@ -2,6 +2,7 @@ const httpStatus = require('http-status')
 const JWT = require('../../../helper/jwt.helper')
 const Response = require('../../../helper/response.helper')
 const userRepository = require('../../../database/repositories/user.repository')
+const UserResource = require('../../requests/resources/user.resource')
 
 /** */
 class AuthController {
@@ -72,6 +73,19 @@ class AuthController {
           .setMessage(httpStatus[httpStatus.UNAUTHORIZED])
           .get()
     }
+  }
+
+  /**
+   * @method GET
+   * @header Authorization
+   * @param {Request} req http request.
+   * @param {Response} res http response.
+   */
+  static async me(req, res) {
+    const data = UserResource.resource(JWT.getData(req))
+    new Response(res)
+        .setData(data)
+        .get()
   }
 }
 
