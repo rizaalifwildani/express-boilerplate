@@ -29,6 +29,7 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
     "node-cron": "^3.0.1",
+    "rollbar": "^2.25.0",
     "rotating-file-stream": "^2.1.6",
     "sequelize": "^6.6.5",
     "supertest": "^6.1.5",

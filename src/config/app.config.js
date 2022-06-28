@@ -36,4 +36,8 @@ app.use(loggerConfig)
 /* CRON */
 require('./scheduler.config')
 
+/* ROLEBAR */
+const rollbar = require('./rollbar.config')
+app.use(rollbar.errorHandler())
+
 module.exports = app

@@ -21,6 +21,7 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - Unit Testing
 - Scheduler (Backup DB)
 - Swagger
+- UI Error Tracking
 
 ## Package used in this project
 - [Express](https://expressjs.com/)
@@ -40,6 +41,7 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc)
 - [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express)
 - [UUID](https://www.npmjs.com/package/uuid)
+- [Rollbar Error Tracking](https://docs.rollbar.com/docs/nodejs)
 
 ## Unit Testing
 - [Jest](https://jestjs.io/)
