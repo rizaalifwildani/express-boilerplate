@@ -17,6 +17,8 @@ module.exports = (sequelize, dt) => {
       // define association here
       User.belongsTo(models.School, {
         foreignKey: 'schoolId',
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE',
       })
     }
   }
