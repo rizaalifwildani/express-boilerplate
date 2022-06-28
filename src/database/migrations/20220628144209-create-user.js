@@ -9,6 +9,17 @@ module.exports = {
         autoIncrement: false,
         primaryKey: true,
       },
+      schoolId: {
+        allowNull: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        references: {
+          model: {
+            tableName: 'Schools',
+          },
+          key: 'id',
+        },
+      },
       firstName: {
         allowNull: false,
         type: Sequelize.STRING(30),

@@ -1,4 +1,5 @@
 'use strict'
+const uuid = require('uuid')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -13,6 +14,7 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Schools', [
       {
+        id: uuid.v4(),
         name: 'Sekolah rajin',
         city: 'Bekasi',
         latLon: '0,0',
@@ -21,6 +23,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid.v4(),
         name: 'SMA 1',
         city: 'Bekasi',
         latLon: '0,0',
@@ -29,6 +32,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuid.v4(),
         name: 'SMA 2',
         city: 'Jakarta',
         latLon: '0,0',

@@ -15,9 +15,13 @@ module.exports = (sequelize, dt) => {
      */
     static associate(models) {
       // define association here
+      User.belongsTo(models.School, {
+        foreignKey: 'schoolId',
+      })
     }
   }
   User.init({
+    schoolId: DataTypes.UUIDV4,
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
@@ -38,5 +42,6 @@ module.exports = (sequelize, dt) => {
     sequelize,
     modelName: 'User',
   })
+
   return User
 }
