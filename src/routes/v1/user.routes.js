@@ -35,7 +35,7 @@ const router = express.Router()
 
 /**
  * @swagger
- * /api/v1/user/me:
+ * /api/v1/users/me:
  *  get:
  *    summary: Return the object of core web
  *    tags: [User v1]
@@ -63,5 +63,31 @@ const router = express.Router()
  *                null
  */
 router.get('/me', UserController.me)
+
+/**
+ * @swagger
+ * /api/v1/users/all:
+ *  get:
+ *    summary: Return All user list
+ *    tags: [User v1]
+ *    responses:
+ *      200:
+ *        description: the array of user objects
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/User'
+ *      404:
+ *        description: Not Found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              example:
+ *                null
+ */
+router.get('/all', UserController.all)
+
 
 module.exports = router

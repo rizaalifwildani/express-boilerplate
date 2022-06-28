@@ -4,9 +4,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Express Library API',
+      title: 'Library API',
       version: '1.0.0',
-      description: 'Express API Documentation',
+      description: 'API Documentation',
     },
   },
   apis: [
