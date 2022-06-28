@@ -40,4 +40,16 @@ This is a [Node JS](https://nodejs.org) boilerplate with [`Express`](https://exp
 - [ESLint Config Google](https://www.npmjs.com/package/eslint-config-google)
 - run linter with command `npm run lint` or `yarn lint`
 
+## Migration
+```sh
+$ npx sequelize-cli model:generate --name TableName --attributes name:string,city:string
+
+$ npx sequelize-cli db:migrate
+```
+
+Seed
+```sh
+npx sequelize-cli seed:generate --name demo-school
+```
+
 your feedback and contributions are welcome!
