@@ -1,6 +1,6 @@
 const Response = require('../../../helper/response.helper')
+const SchoolRepository = require('../../../database/repositories/school.repository')
 const SchoolResource = require('../../requests/resources/school.resource')
-const {School} = require('../../../database/models/index')
 
 /** */
 class SchoolController {
@@ -11,10 +11,10 @@ class SchoolController {
    * @param {Response} res http response
    */
   static async all(req, res) {
-    const user = await School.findAll()
-    const userdata = user.map((item) => SchoolResource.resource(item))
+    const schools = await SchoolRepository.findAll()
+    const schoolsData = schools.map((item) => SchoolResource.resource(item))
 
-    new Response(res).setData(userdata).get()
+    new Response(res).setData(schoolsData).get()
   }
 }
 

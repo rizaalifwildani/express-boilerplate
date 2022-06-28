@@ -9,21 +9,13 @@ module.exports = {
         autoIncrement: false,
         primaryKey: true,
       },
+      nspp: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
       name: {
         allowNull: false,
         type: Sequelize.STRING(30),
-        validate: {
-          notNull: true,
-          max: 30,
-        },
-      },
-      city: {
-        allowNull: false,
-        type: Sequelize.STRING(30),
-        validate: {
-          notNull: true,
-          max: 30,
-        },
       },
       latLon: {
         allowNull: false,
@@ -36,10 +28,38 @@ module.exports = {
       accreditation: {
         allowNull: false,
         type: Sequelize.STRING(30),
-        validate: {
-          notNull: true,
-          max: 30,
-        },
+      },
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
+      isVerified: {
+        allowNull: true,
+        type: Sequelize.BOOLEAN,
+      },
+      address: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
+      provinceId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      cityId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      districtId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      subdistrictId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

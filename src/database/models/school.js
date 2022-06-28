@@ -15,14 +15,38 @@ module.exports = (sequelize, DataTypes) => {
       School.hasMany(models.User, {
         foreignKey: 'schoolId',
       })
+      School.belongsTo(models.Province, {
+        foreignKey: 'provinceId',
+        as: 'province',
+      })
+      School.belongsTo(models.City, {
+        foreignKey: 'cityId',
+        as: 'city',
+      })
+      School.belongsTo(models.Districts, {
+        foreignKey: 'districtId',
+        as: 'district',
+      })
+      School.belongsTo(models.Subdistricts, {
+        foreignKey: 'subdistrictId',
+        as: 'subdistrict',
+      })
     }
   }
   School.init(
       {
         name: DataTypes.STRING,
-        city: DataTypes.STRING,
+        nspp: DataTypes.STRING,
         latLon: DataTypes.STRING,
         accreditation: DataTypes.STRING,
+        email: DataTypes.STRING,
+        phone: DataTypes.STRING,
+        isVerified: DataTypes.BOOLEAN,
+        address: DataTypes.STRING,
+        provinceId: DataTypes.INTEGER,
+        cityId: DataTypes.INTEGER,
+        districtId: DataTypes.INTEGER,
+        subdistrictId: DataTypes.INTEGER,
       },
       {
         sequelize,
