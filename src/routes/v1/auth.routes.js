@@ -45,6 +45,12 @@ const AuthController = require('../../http/controllers/v1/auth.controller')
  * @swagger
  * /api/v1/auth/register:
  *  post:
+ *    parameters:
+ *      - in: header
+ *        name: Origin
+ *        required: true
+ *        type: string
+ *        example: http://localhost:5003
  *    summary: Register for New User (Guest)
  *    tags: [Auth v1]
  *    requestBody:
@@ -107,6 +113,12 @@ router.post('/register', GUEST, registerValidation(), getValidationResult, AuthC
  * @swagger
  * /api/v1/auth/login:
  *  post:
+ *    parameters:
+ *      - in: header
+ *        name: Origin
+ *        required: true
+ *        type: string
+ *        example: http://localhost:5003
  *    summary: Login (Guest)
  *    tags: [Auth v1]
  *    requestBody:
@@ -146,6 +158,14 @@ router.post('/login', GUEST, AuthController.login)
  * @swagger
  * /api/v1/auth/logout:
  *  patch:
+ *    security:
+ *      - bearerAuth: []
+ *    parameters:
+ *      - in: header
+ *        name: Origin
+ *        required: true
+ *        type: string
+ *        example: http://localhost:5003
  *    summary: Logout for current session
  *    tags: [Auth v1]
  *    responses:
@@ -171,6 +191,14 @@ router.patch('/logout', AUTH, AuthController.logout)
  * @swagger
  * /api/v1/auth/me:
  *  get:
+ *    security:
+ *      - bearerAuth: []
+ *    parameters:
+ *      - in: header
+ *        name: Origin
+ *        required: true
+ *        type: string
+ *        example: http://localhost:5003
  *    summary: Return the object of core web
  *    tags: [Auth v1]
  *    responses:

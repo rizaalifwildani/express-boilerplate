@@ -12,8 +12,8 @@ const customErrorHandler = (err, req, res, next) => {
           .get()
     } else if (res.statusCode === 500) {
       new Response(res)
-          .setStatus(httpStatus.BAD_REQUEST)
-          .setMessage(httpStatus[httpStatus.BAD_REQUEST])
+          .setStatus(httpStatus.INTERNAL_SERVER_ERROR)
+          .setMessage(httpStatus[httpStatus.INTERNAL_SERVER_ERROR])
           .get()
     } else {
       next()

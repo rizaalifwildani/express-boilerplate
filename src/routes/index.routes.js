@@ -9,18 +9,6 @@ const v1 = require('./v1/v1.routes')
  * @swagger
  * components:
  *  schemas:
- *    Header:
- *      properties:
- *        Content-Type:
- *          type: string
- *          description: Content Type Header
- *        Authorization:
- *          type: string
- *          description: Authorization Header ( Bearer )
- *      example:
- *        Content-Type: application/json
- *        Authorization: Bearer sdss213121312323saddsada
- *
  *    UnprocessibleEntity:
  *      properties:
  *        value:
@@ -40,6 +28,14 @@ const v1 = require('./v1/v1.routes')
  *        msg: must be a valid email
  *        param: email
  *        location: body
+ *
+ *  securitySchemes:
+ *    bearerAuth:
+ *      type: http
+ *      scheme: bearer
+ *      bearerFormat: JWT
+ * security:
+ *  - bearerAuth: []
  */
 router.use('/api/v1', v1)
 
