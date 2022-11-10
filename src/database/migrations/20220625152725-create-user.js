@@ -12,25 +12,16 @@ module.exports = {
       firstName: {
         allowNull: false,
         type: Sequelize.STRING(30),
-        validate: {
-          notNull: true,
-          max: 30,
-        },
       },
       lastName: {
         type: Sequelize.STRING(20),
         defaultValue: '',
-        validate: {
-          max: 20,
-        },
       },
       phone: {
         allowNull: false,
         type: Sequelize.STRING(15),
         validate: {
-          notNull: true,
           isNumeric: true,
-          max: 15,
         },
       },
       email: {
@@ -38,17 +29,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         validate: {
           isEmail: true,
-          notNull: true,
-          max: 50,
         },
       },
       password: {
         allowNull: false,
         type: Sequelize.TEXT,
-        validate: {
-          notNull: true,
-          min: 6,
-        },
       },
       expiryToken: {
         type: Sequelize.DOUBLE,

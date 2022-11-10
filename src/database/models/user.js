@@ -27,12 +27,11 @@ module.exports = (sequelize, dt) => {
   }, {
     hooks: {
       beforeCreate: async (data) => {
-        const user = data
-        const hashedPassword = PASSWORD.generate(user.password)
-        user.id = uuid.v4()
-        user.password = hashedPassword
-        user.createdAt = new Date()
-        user.updatedAt = new Date()
+        const hashedPassword = PASSWORD.generate(data.password)
+        data.id = uuid.v4()
+        data.password = hashedPassword
+        data.createdAt = new Date()
+        data.updatedAt = new Date()
       },
     },
     sequelize,
